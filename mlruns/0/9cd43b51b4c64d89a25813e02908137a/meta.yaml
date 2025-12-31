@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/IRFANKARIM/Project_Portfolio/Ultimate%20DevOps%20to%20MLOps/house-price-predictor/mlruns/0/9cd43b51b4c64d89a25813e02908137a/artifacts
+end_time: 1766741050710
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 9cd43b51b4c64d89a25813e02908137a
+run_name: final_training
+run_uuid: 9cd43b51b4c64d89a25813e02908137a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1766741050632
+status: 4
+tags: []
+user_id: Muhammad Irfan Karim
