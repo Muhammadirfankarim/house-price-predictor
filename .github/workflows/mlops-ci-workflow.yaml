@@ -168,4 +168,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: docker.io/${{ vars.DOCKERHUB_USERNAME }}/fastapi:${{ github.sha }}
+          tags: docker.io/${{ vars.DOCKERHUB_USERNAME }}/house-price-model:${{ github.sha }}
