@@ -20,22 +20,25 @@ jobs:
         with:
           python-version: '3.11.9'
 
+      - name: Install uv
+        run: |
+          curl -LsSf https://astral.sh/uv/install.sh | sh
+          echo "$HOME/.cargo/bin" >> $GITHUB_PATH
+
       - name: Install dependencies
         run: |
           uv venv
-          source .venv/bin/activate
-          python -m pip install --upgrade pip
           uv pip install -r requirements.txt
 
       - name: Step 1 - Data Preprocessing
         run: |
-          uv python src/data/run_processing.py \
+          uv run python src/data/run_processing.py \
           --input data/raw/house_data.csv \
           --output data/processed/cleaned_house_data.csv
 
       - name: Step 2 - Feature Engineering
         run: |
-          uv python src/features/engineer.py \
+          uv run python src/features/engineer.py \
           --input data/processed/cleaned_house_data.csv \
           --output data/processed/featured_house_data.csv \
           --preprocessor models/trained/preprocessor.pkl
@@ -51,7 +54,7 @@ jobs:
 
       - name: Step 4 - Model Experimentation
         run: |
-          uv python src/models/train_model.py \
+          uv run python src/models/train_model.py \
           --config configs/model_config.yaml \
           --data data/processed/featured_house_data.csv \
           --models-dir models \
